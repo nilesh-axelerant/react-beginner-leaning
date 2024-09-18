@@ -1,18 +1,42 @@
 import { useState, useEffect } from 'react'
 
-export function FunctionComponent() {
+export function Child() {
 
   const [name, setName] = useState("")
   const [age, setAge] = useState(0)
 
+  // Re render every time
   useEffect(() => {
-    console.log("Age is changed to", age)
-  }, [age])
+    console.log("re-render");
+  })
 
   // Only changes when mounted and will never executed.
   useEffect(() => {
-    console.log("Mount component")
+    console.log("hi");
+
+    return () => {
+      console.log("Bye")
+    }
   }, [])
+
+  // Only changes when name & age is changed.
+  useEffect(() => {
+    console.log(`my name is ${name} and age is ${age}`);
+  }, [name, age])
+
+  // Only changes when name changed.
+  useEffect(() => {
+    document.title = name;
+
+    // Log name after 1 sec.
+    const timeout = setTimeout(() => {
+      console.log(`My name is ${name}`)
+    }, 1000)
+
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [name])
 
   return (
     <div>
