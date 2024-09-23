@@ -1,5 +1,3 @@
-
-
 export function TodoItem({id, name, completed, toggleTodo, deleteTodo}) {
   return (
     <li className="list-item">
