@@ -1,7 +1,17 @@
 import { useState } from 'react'
+import { UserLoginStateApp } from './UserLoginStateApp'
+import { UserLoginRefApp } from './UserLoginRefApp'
+
+
+import './styles.css'
 
 function App() {
-  return <h1>Hello</h1>
+
+  // App with useState feature
+  return <UserLoginStateApp />
+
+  // App with useRef feature
+  return <UserLoginRefApp />
 }
 
 export default App
