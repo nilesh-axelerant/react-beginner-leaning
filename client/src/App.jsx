@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 function App() {
-  return <h1>Hello</h1>
+  return "Hello"
 }
 
 export default App
